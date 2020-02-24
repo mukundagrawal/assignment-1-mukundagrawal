@@ -1,4 +1,7 @@
 package Contacts;
 
-public class MyContactList {
-}
+
+
+    public class MyContactList {
+
+    }
