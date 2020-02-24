@@ -115,6 +115,39 @@ import person.Person;
             System.out.println("Added Successfully !\n\n");
 
         }
+        public void display()
+        {
+            System.out.println("---Here are all your contacts---");
+
+            Node temp = head;
+
+            while(temp!=null)
+            {
+                System.out.println("-------- * -------- * -------- * --------");
+                System.out.println("First Name: "+temp.getData().getF_name());
+                System.out.println("Last Name: "+temp.getData().getL_name());
+
+                if(temp.getData().getP_number().size()<=1)
+                {
+                    System.out.print("Contact Number : "+temp.getData().getP_number().get(0)+"\n");
+                }
+                else
+                {
+                    System.out.print("Contact Number(s) :");
+                    for(String l:temp.getData().getP_number())
+                    {
+                        System.out.print(l);
+                        System.out.print(", ");
+                    }
+                    System.out.print("\b\b\n");
+                }
+
+                System.out.println("Email ID: "+temp.getData().getEmail());
+                System.out.println("-------- * -------- * -------- * --------\n");
+
+                temp = temp.getNext();
+            }
+        }
 
 
     }
