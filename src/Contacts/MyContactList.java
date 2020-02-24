@@ -14,7 +14,7 @@ import person.Person;
         private Node head;
         private Node tail;
 
-        MyContactList() {
+        public MyContactList() {
             head = null;
             size = 0;
         }
