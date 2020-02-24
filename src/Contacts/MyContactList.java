@@ -148,6 +148,44 @@ import person.Person;
                 temp = temp.getNext();
             }
         }
+        public void search(String s)
+        {
+            Node temp = head;
+            int count=0;
+            while(temp!=null)
+            {
+                if(temp.getData().getF_name().equals(s))
+                {
+                    System.out.println("-------- * -------- * -------- * --------");
+                    System.out.println("First Name: "+temp.getData().getF_name());
+                    System.out.println("Last Name: "+temp.getData().getL_name());
+
+                    if(temp.getData().getP_number().size()<=1)
+                    {
+                        System.out.print("Contact Number : "+temp.getData().getP_number().get(0)+"\n");
+                    }
+                    else
+                    {
+                        System.out.print("Contact Number(s) :");
+                        for(String l:temp.getData().getP_number())
+                        {
+                            System.out.print(l);
+                            System.out.print(", ");
+                        }
+                        System.out.print("\b\b\n");
+                    }
+
+                    System.out.println("Email ID: "+temp.getData().getEmail());
+                    System.out.println("-------- * -------- * -------- * --------\n");
+                    count++;
+                }
+                temp = temp.getNext();
+            }
+            if(count==0)
+                System.out.println("NO RESULTS FOUND!\n");
+        }
+
+
 
 
     }
