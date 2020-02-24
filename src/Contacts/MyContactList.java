@@ -184,6 +184,58 @@ import person.Person;
             if(count==0)
                 System.out.println("NO RESULTS FOUND!\n");
         }
+        public void deleteContact() {
+            if (!isEmpty()) {
+                Node temp_h = head;
+                System.out.println("Here are all your contacts:");
+                for (int i = 0; i < size; i++) {
+                    System.out.println((i + 1) + ". " + temp_h.getData().getF_name()+" "+ temp_h.getData().getL_name());
+                    if(i<size-1)
+                        temp_h = temp_h.getNext();
+                }
+
+                System.out.print("Press the number against the contact to delete it:");
+                temp_h = head;
+
+                int choice = sc.nextInt();
+
+                if (size == 1 && choice == 1) {
+                    System.out.println(head.getData().getF_name() + " " + head.getData().getL_name() + "\'s contact deleted from list!\n\n");
+                    head = tail = null;
+                    size--;
+                    return;
+                }
+                if (size != 1 && choice == 1) {
+                    System.out.println(head.getData().getF_name() + " " + head.getData().getL_name() + "\'s contact deleted from list!\n\n");
+                    head = temp_h.getNext();
+                    head.setPrevious(null);
+                    size--;
+                    return;
+                }
+                if(!(choice==size)) {
+                    temp_h = head;
+
+                    for (int i = 1; i < choice-1; i++) {
+                        temp_h = temp_h.getNext();
+                    }
+                    System.out.println(temp_h.getNext().getData().getF_name() + " " + temp_h.getNext().getData().getL_name() + "\'s contact deleted from list!\n\n");
+                    temp_h.setNext(temp_h.getNext().getNext());
+                    temp_h.getNext().setPrevious(temp_h);
+                    size--;
+                    return;
+                }
+                if(choice==size)
+                {
+                    System.out.println(tail.getData().getF_name()+" "+tail.getData().getL_name() + "\'s contact deleted from list!\n\n");
+                    Node temp_t=tail;
+                    tail=temp_t.getPrevious();
+                    tail.setNext(null);
+                    return;
+                }
+            }
+            else
+                System.out.println("YOUR CONTACT LIST IS EMPTY !!!\n\n");
+        }
 
 
 
